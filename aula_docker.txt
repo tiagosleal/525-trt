@@ -1,0 +1,57 @@
+# Docker
+
+# Criar container (sobre container com imagem debian e executa o bash e sai)
+docker container run --name teste_tiago debian /bin/bash
+
+# Lista containers rodando
+docker ps
+
+# Lista todos os containers
+docker ps -a
+
+# Cria container com terminal interativo e já entra nele (attach)
+docker container run -it --name teste_tiago debian /bin/bash 
+ctrl + PQ para sair
+
+# Cria container com terminal interativo e não entra nele
+docker container run -dit --name teste_tiago debian /bin/bash 
+
+# Remove container
+docker rm nome_container
+
+# Conecta a um container (attach)
+docker attach teste_tiago
+
+# Copia algo para dentro do container
+docker cp arq_origem teste_tiago:/tmp
+
+# Executa um processo no container
+docker exec nome_container comando
+
+# Executa um terminal no container
+docker exec -it nome_container /bin/bash
+
+# Parar/subir um container
+docker start nome_container
+docker stop nome_container
+
+# Buscar imagens por tipo 
+docker search centos
+
+# Baixar imagem
+docker pull centosdocker ps
+
+# Subir container imagem httpd com volume mapeado e porta
+docker run -p 80:80 -dti --name webx -v data:/usr/local/apache2/htdocs httpd
+
+# Criar rede 
+docker network create --subnet 10.0.0.0/16 nome_container
+
+# Criar container apontando para rede
+docker run -dti --name node01 --hostname node01 --net nome_rede debian /bin/bash
+
+# Criar container já setando IP
+docker run -dti --name node01 --hostname node01 --ip 10.0.0.10 --net nome_rede debian /bin/bash
+
+# Informações do container 
+docker inspect nome_container

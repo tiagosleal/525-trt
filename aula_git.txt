@@ -1,0 +1,36 @@
+# Git
+
+# Iniciar repositorio
+git init
+
+# Checar status do repositorio
+git status
+
+# Adicionar arquivo criado/alterado no staging
+git add arquivo
+
+# Configuracao do git
+git config --global user.name "Tiago Devops"
+git config --global user.email "tiagosleal@trt15.jus.br"
+
+# Comitando as alterações
+git commit -m "Adicionando o arquivo1"
+
+# Ver lista de commits
+git log
+
+# Comitar com tag
+git tag -a "v1.1" -m "Conteudo adicionado"
+
+# Criar branch
+git checkout -b nome_branch
+
+# Mudar para a master ou branch
+git checkout master
+
+# Checar diferenças entre branches
+git diff branch1 branch2
+
+# Criar repositorio remoto
+git remote add github https://github.com/tiagosleal/525-trt.git
+
